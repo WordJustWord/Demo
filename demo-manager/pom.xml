@@ -20,7 +20,6 @@
 		<module>demo-manager-pojo</module>
 		<module>demo-manager-interface</module>
 		<module>demo-manager-service</module>
-		<module>demo-manager.dao</module>
 	</modules>
 	<build>
 		<plugins>
