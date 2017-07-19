@@ -21,4 +21,11 @@ public class ItemController {
 		PageBean list = itemService.GetList(page, rows);
 		return list;
 	}
+
+	@RequestMapping("/save")
+	@ResponseBody
+	public String SaveItem() {
+		
+		return null;
+	}
 }
