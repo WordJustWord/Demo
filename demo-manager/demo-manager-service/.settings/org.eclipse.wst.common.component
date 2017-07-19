@@ -13,7 +13,7 @@
         <dependent-module archiveName="demo-manager-interface-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/demo-manager-interface/demo-manager-interface">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="demo-commons-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/demo-commons/demo-commons">
+        <dependent-module archiveName="demo-common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/demo-common/demo-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="demo-manager-service"/>

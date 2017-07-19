@@ -11,7 +11,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>cn.nova</groupId>
-			<artifactId>demo-commons</artifactId>
+			<artifactId>demo-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

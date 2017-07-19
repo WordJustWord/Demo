@@ -6,7 +6,7 @@
 		<artifactId>demo-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>demo-commons</artifactId>
+	<artifactId>demo-common</artifactId>
 	<dependencies>
 		<!-- 时间操作组件 -->
 		<dependency>
