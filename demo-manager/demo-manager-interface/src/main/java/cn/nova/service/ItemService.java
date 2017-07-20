@@ -9,4 +9,8 @@ public interface ItemService {
 	PageBean GetList(int page, int rows);
 
 	TaotaoResult SaveItems(TbItem item, String desc);
+	
+	TaotaoResult InitDesc(Long id);
+	
+	TaotaoResult InitParam(Long id);
 }
