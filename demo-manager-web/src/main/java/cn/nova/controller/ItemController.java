@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import cn.nova.common.pojo.TaotaoResult;
 import cn.nova.pojo.PageBean;
 import cn.nova.pojo.TbItem;
+import cn.nova.pojo.TbItemParamItem;
 import cn.nova.service.ItemService;
 
 @Controller
@@ -28,9 +29,7 @@ public class ItemController {
 	@RequestMapping("/save")
 	@ResponseBody
 	public TaotaoResult SaveItem(TbItem item,String desc) {
-		
 		TaotaoResult result = itemService.SaveItems(item, desc);
-		
 		return result;
 	}
 }

@@ -94,7 +94,9 @@ public class ItemServiceImpl implements ItemService {
 		}
 		return TaotaoResult.ok(itemDesc);
 	}
-
+	/**
+	 * 初始化参数配置
+	 */
 	@Override
 	public TaotaoResult InitParam(Long id) {
 		TbItemParamItemExample example = new TbItemParamItemExample();
@@ -106,6 +108,82 @@ public class ItemServiceImpl implements ItemService {
 			itemParamItem=(TbItemParamItem)list.get(0);
 		}
 		return TaotaoResult.ok(itemParamItem);
+	}
+	/**
+	 * 修改一项参数
+	 */
+	@Override
+	public TaotaoResult Update(TbItem item, String desc) {
+		//保存商品项
+		TbItemExample itemExample = new TbItemExample();
+		TbItem tbItem = itemMapper.selectByPrimaryKey(item.getId());
+		tbItem.setCid(item.getCid());
+		tbItem.setTitle(item.getTitle());
+		tbItem.setSellPoint(item.getSellPoint());
+		tbItem.setPrice(item.getPrice());
+		tbItem.setNum(item.getNum());
+		tbItem.setBarcode(item.getBarcode());
+		tbItem.setImage(item.getImage());
+		tbItem.setUpdated(new Date());
+		itemMapper.updateByPrimaryKey(tbItem);
+
+		//保存商品描述
+		TbItemDescExample example = new TbItemDescExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andItemIdEqualTo(item.getId());
+		List<TbItemDesc> list = itemDescMapper.selectByExampleWithBLOBs(example);
+		if (list.size()>0) {
+			TbItemDesc itemDesc = new TbItemDesc();
+			itemDesc=list.get(0);
+			itemDesc.setItemDesc(desc);
+			itemDescMapper.updateByPrimaryKeyWithBLOBs(itemDesc);
+		}
+		return TaotaoResult.ok();
+	}
+	/**
+	 * 下架商品
+	 */
+	@Override
+	public TaotaoResult ItemDown(String ids) {
+		if (ids.indexOf(",")>0) {
+			String[] arrIds = ids.split(",");
+			for (String itemId : arrIds) {
+				TbItem tbItem = itemMapper.selectByPrimaryKey(Long.parseLong(itemId));
+				tbItem.setStatus((byte) 2);
+				itemMapper.updateByPrimaryKey(tbItem);
+			}
+		}
+		return TaotaoResult.ok();
+	}
+	/**
+	 * 上架商品
+	 */
+	@Override
+	public TaotaoResult ItemUp(String ids) {
+		if (ids.indexOf(",")>0) {
+			String[] arrIds = ids.split(",");
+			for (String itemId : arrIds) {
+				TbItem tbItem = itemMapper.selectByPrimaryKey(Long.parseLong(itemId));
+				tbItem.setStatus((byte) 1);
+				itemMapper.updateByPrimaryKey(tbItem);
+			}
+		}
+		return TaotaoResult.ok();
+	}
+	/**
+	 * 删除商品
+	 */
+	@Override
+	public TaotaoResult ItemDel(String ids) {
+		if (ids.indexOf(",")>0) {
+			String[] arrIds = ids.split(",");
+			for (String itemId : arrIds) {
+				TbItem tbItem = itemMapper.selectByPrimaryKey(Long.parseLong(itemId));
+				tbItem.setStatus((byte) 3);
+				itemMapper.updateByPrimaryKey(tbItem);
+			}
+		}
+		return TaotaoResult.ok();
 	}
 }
 
