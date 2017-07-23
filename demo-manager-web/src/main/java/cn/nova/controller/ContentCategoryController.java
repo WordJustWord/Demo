@@ -6,18 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.nova.content.service.CategoryService;
 import cn.nova.pojo.EasyUITreeNode;
 
 @Controller
 @RequestMapping("/content/category")
 public class ContentCategoryController {
 
-//	@Autowired
-//	private 
+	@Autowired
+	private CategoryService categoryService; 
 	
-//	@RequestMapping("/list")
-//	public List<EasyUITreeNode> InitCategory(@RequestParam(value="id",defaultValue="0") Long parentId){
-//		List<EasyUITreeNode> treeNodes=
-//	}
+	@RequestMapping("/list")
+	@ResponseBody
+	public List<EasyUITreeNode> InitCategory(@RequestParam(value="id",defaultValue="0") Long parentId){
+		List<EasyUITreeNode> treeNodes=categoryService.GetList(parentId);
+		return treeNodes;
+	}
 }
