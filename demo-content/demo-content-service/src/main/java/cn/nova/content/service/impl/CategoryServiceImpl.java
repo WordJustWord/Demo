@@ -40,12 +40,13 @@ public class CategoryServiceImpl implements CategoryService {
 		}
 		return nodes;
 	}
+
 	/**
 	 * 创建新的分类
 	 */
 	@Override
 	public TbContentCategory Create(Long parentId, String name) {
-		TbContentCategory category=new TbContentCategory();
+		TbContentCategory category = new TbContentCategory();
 		category.setParentId(parentId);
 		category.setName(name);
 		category.setSortOrder(1);
@@ -53,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
 		category.setIsParent(false);
 		category.setCreated(new Date());
 		category.setUpdated(new Date());
-		
+
 		contentCategoryMapper.insert(category);
 		TbContentCategory category2 = contentCategoryMapper.selectByPrimaryKey(parentId);
 		if (!category2.getIsParent()) {
@@ -61,6 +62,48 @@ public class CategoryServiceImpl implements CategoryService {
 			contentCategoryMapper.updateByPrimaryKey(category2);
 		}
 		return category;
+	}
+
+	/**
+	 * 修改分类
+	 */
+	@Override
+	public void Update(Long id, String name) {
+		TbContentCategory category = contentCategoryMapper.selectByPrimaryKey(id);
+		category.setName(name);
+		category.setUpdated(new Date());
+		contentCategoryMapper.updateByPrimaryKey(category);
+	}
+
+	/**
+	 * 删除分类
+	 */
+	@Override
+	public void Del(Long parentId, Long id) {
+		TbContentCategory category = contentCategoryMapper.selectByPrimaryKey(id);
+		TbContentCategoryExample example = new TbContentCategoryExample();
+		Criteria criteria = example.createCriteria();
+		// 如果是父ID则删除所有的子类
+		if (category.getIsParent()) {
+			if (parentId != null) {
+				criteria.andParentIdEqualTo(parentId);
+			}
+			contentCategoryMapper.deleteByPrimaryKey(id);
+			contentCategoryMapper.deleteByExample(example);
+		}
+		// 否则只删除当前节点
+		else {
+			contentCategoryMapper.deleteByPrimaryKey(id);
+			if (parentId != null) {
+				criteria.andParentIdEqualTo(parentId);
+				List<TbContentCategory> list = contentCategoryMapper.selectByExample(example);
+				if (!(list.size() > 0)) {
+					TbContentCategory parent = contentCategoryMapper.selectByPrimaryKey(parentId);
+					parent.setIsParent(false);
+					contentCategoryMapper.updateByPrimaryKey(parent);
+				}
+			}
+		}
 	}
 
 }

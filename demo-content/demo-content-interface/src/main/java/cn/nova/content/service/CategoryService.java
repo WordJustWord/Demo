@@ -11,4 +11,8 @@ public interface CategoryService {
 
 	TbContentCategory Create(Long parentId, String name);
 
+	void Update(Long id, String name);
+
+	void Del(Long parentId, Long id);
+
 }

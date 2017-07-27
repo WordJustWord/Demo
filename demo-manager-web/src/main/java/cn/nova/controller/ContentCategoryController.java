@@ -33,4 +33,17 @@ public class ContentCategoryController {
 		TbContentCategory category=categoryService.Create(parentId,name);
 		return TaotaoResult.ok(category);
 	}
+	
+	@RequestMapping("/update")
+	@ResponseBody
+	public TaotaoResult Update(Long id,String name){
+		categoryService.Update(id,name);
+		return TaotaoResult.ok();
+	}
+	@RequestMapping("/delete")
+	@ResponseBody
+	public TaotaoResult Del(Long parentId,Long id){
+		categoryService.Del(parentId,id);
+		return TaotaoResult.ok();
+	}
 }
