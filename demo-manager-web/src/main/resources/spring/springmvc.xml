@@ -24,7 +24,7 @@
 	<mvc:resources location="/js/" mapping="/js/**"/>
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="demo-manager-web"/>
-	<dubbo:registry protocol="zookeeper" address="192.168.199.215:2181"/>	
+	<dubbo:registry protocol="zookeeper" address="192.168.59.128:2181"/>	
 	<dubbo:reference interface="cn.nova.service.ItemService" id="itemService" />
 	<dubbo:reference interface="cn.nova.service.ItemCatService" id="itemCatService" />
 	<dubbo:reference interface="cn.nova.content.service.CategoryService" id="categoryService" />
