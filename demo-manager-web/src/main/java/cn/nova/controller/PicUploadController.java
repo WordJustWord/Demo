@@ -21,14 +21,14 @@ public class PicUploadController {
 
 	@RequestMapping("/pic/upload")
 	@ResponseBody
-	public Map Upload(MultipartFile uploadFile) {
-		Map map = new HashMap<>();
+	public Map<Object, Object> Upload(MultipartFile uploadFile) {
+		Map<Object, Object> map = new HashMap<>();
 		try {
 			String filename = uploadFile.getOriginalFilename();
 			String extName = filename.substring(filename.lastIndexOf(".") + 1);
 			// 上传文件到图片
 			FastDFSClient dfsClient = new FastDFSClient("classpath:configers/client.conf");
-			String url = dfsClient.uploadFile(filename.getBytes(), extName);
+			String url = dfsClient.uploadFile(uploadFile.getBytes(), extName);
 			url = IMAGE_SERVER_URL + url;
 			map.put("error", 0);
 			map.put("url", url);
