@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="demo-common" />
+        <module name="demo-content-interface" />
+        <module name="demo-content-service" />
+        <module name="demo-manager-dao" />
+        <module name="demo-manager-interface" />
+        <module name="demo-manager-pojo" />
+        <module name="demo-manager-service" />
+        <module name="demo-manager-web" />
+        <module name="demo-portal-web" />
+        <module name="fastdfs_client" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo-common" target="1.8" />
+      <module name="demo-content" target="1.8" />
+      <module name="demo-content-interface" target="1.8" />
+      <module name="demo-content-service" target="1.8" />
+      <module name="demo-manager" target="1.8" />
+      <module name="demo-manager-dao" target="1.8" />
+      <module name="demo-manager-interface" target="1.8" />
+      <module name="demo-manager-pojo" target="1.8" />
+      <module name="demo-manager-service" target="1.8" />
+      <module name="demo-manager-web" target="1.8" />
+      <module name="demo-parent" target="1.8" />
+      <module name="demo-portal-web" target="1.8" />
+      <module name="fastdfs_client" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

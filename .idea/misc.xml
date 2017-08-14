@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/demo-content/demo-content-service" />
+    <file type="web" url="file://$PROJECT_DIR$/demo-manager-web" />
+    <file type="web" url="file://$PROJECT_DIR$/demo-manager/demo-manager-service" />
+    <file type="web" url="file://$PROJECT_DIR$/demo-portal-web" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-common/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-portal-web/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-manager-web/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-manager/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-content/pom.xml" />
+        <option value="$PROJECT_DIR$/fastdfs_client/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
