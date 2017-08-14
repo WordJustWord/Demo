@@ -1,2 +1,5 @@
+cn\nova\jedis\JedisClient.class
 cn\nova\content\service\impl\ContentServiceImpl.class
+cn\nova\jedis\JedisClientPool.class
+cn\nova\jedis\JedisClientCluster.class
 cn\nova\content\service\impl\CategoryServiceImpl.class

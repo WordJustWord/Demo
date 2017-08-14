@@ -3,13 +3,13 @@ package cn.nova.protalpojo;
 public class Ad1Node {
 
     private String srcB;
-    private String height;
+    private Long height;
     private String alt;
-    private String width;
+    private Long width;
     private String src;
-    private String widthB;
+    private Long widthB;
     private String href;
-    private String heightB;
+    private Long heightB;
 
     public String getSrcB() {
         return srcB;
@@ -19,11 +19,11 @@ public class Ad1Node {
         this.srcB = srcB;
     }
 
-    public String getHeight() {
+    public Long getHeight() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(Long height) {
         this.height = height;
     }
 
@@ -35,11 +35,11 @@ public class Ad1Node {
         this.alt = alt;
     }
 
-    public String getWidth() {
+    public Long getWidth() {
         return width;
     }
 
-    public void setWidth(String width) {
+    public void setWidth(Long width) {
         this.width = width;
     }
 
@@ -51,11 +51,11 @@ public class Ad1Node {
         this.src = src;
     }
 
-    public String getWidthB() {
+    public Long getWidthB() {
         return widthB;
     }
 
-    public void setWidthB(String widthB) {
+    public void setWidthB(Long widthB) {
         this.widthB = widthB;
     }
 
@@ -67,11 +67,11 @@ public class Ad1Node {
         this.href = href;
     }
 
-    public String getHeightB() {
+    public Long getHeightB() {
         return heightB;
     }
 
-    public void setHeightB(String heightB) {
+    public void setHeightB(Long heightB) {
         this.heightB = heightB;
     }
 
