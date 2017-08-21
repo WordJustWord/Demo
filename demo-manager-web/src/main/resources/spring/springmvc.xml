@@ -39,4 +39,5 @@
 	<dubbo:reference interface="cn.nova.service.ItemCatService" id="itemCatService" />
 	<dubbo:reference interface="cn.nova.content.service.CategoryService" id="categoryService" />
 	<dubbo:reference interface="cn.nova.content.service.ContentService" id="contentService" />
+	<dubbo:reference interface="cn.nova.search.service.SearchItemService" id="searchItemService" />
 </beans>      

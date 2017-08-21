@@ -27,8 +27,8 @@ public class ContentServiceImpl implements ContentService {
 	@Autowired
 	private JedisClient jedisClient;
 
-//	@Value("${INDEX_CONTENT}")
-//	private String INDEX_CONTENT;
+	// @Value("${INDEX_CONTENT}")
+	// private String INDEX_CONTENT;
 
 	/**
 	 * 获取Content分页内容
@@ -56,6 +56,11 @@ public class ContentServiceImpl implements ContentService {
 	@Override
 	public Integer SaveContent(TbContent content) {
 		int res = contentMapper.insert(content);
+		try {
+			jedisClient.hdel("INDEX_CONTENT", content.getCategoryId()+"");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return res;
 	}
 
@@ -69,6 +74,12 @@ public class ContentServiceImpl implements ContentService {
 		content.setCreated(tbContent.getCreated());
 
 		int res = contentMapper.updateByPrimaryKey(content);
+		
+		try {
+			jedisClient.hdel("INDEX_CONTENT", content.getCategoryId()+"");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return res;
 	}
 
@@ -93,7 +104,6 @@ public class ContentServiceImpl implements ContentService {
 			String json = jedisClient.hget("INDEX_CONTENT", categoryId + "");
 			if (StringUtils.isNoneBlank(json)) {
 				List<TbContent> list = JsonUtils.jsonToList(json, TbContent.class);
-				System.out.println("从缓存中取到的数据");
 				return list;
 			}
 
@@ -109,7 +119,6 @@ public class ContentServiceImpl implements ContentService {
 
 		try {
 			jedisClient.hset("INDEX_CONTENT", categoryId + "", JsonUtils.objectToJson(list));
-			System.out.println("从数据库中取到的数据");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
