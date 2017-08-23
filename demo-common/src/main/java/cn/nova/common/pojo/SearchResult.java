@@ -1,8 +1,9 @@
 package cn.nova.common.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SearchResult {
+public class SearchResult implements Serializable {
 	private List<SearchItem> itemList;
 	private long recordCount;
 	private long pageCount;
