@@ -3,6 +3,7 @@ package cn.nova.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.nova.common.pojo.TaotaoResult;
 import cn.nova.search.service.SearchItemService;
@@ -14,6 +15,7 @@ public class SearchItemController {
 	private SearchItemService searchItemService;
 
 	@RequestMapping("/index/import")
+	@ResponseBody
 	public TaotaoResult ImportAllItems() {
 
 		TaotaoResult taotaoResult;

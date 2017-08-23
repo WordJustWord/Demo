@@ -31,6 +31,6 @@
 	</bean>
 	<!-- Mapper映射文件的包扫描器 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="cn.nova.mapper" />
+		<property name="basePackage" value="cn.nova.search.mapper" />
 	</bean>
 </beans>
